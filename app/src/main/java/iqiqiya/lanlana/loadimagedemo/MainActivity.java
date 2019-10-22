@@ -10,6 +10,8 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -29,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLoadImageClick(View v) {
-        loadUrlImage("https://avatars2.githubusercontent.com/u/43666095?s=460&v=4");
+        //普通方式 loadUrlImage("https://avatars2.githubusercontent.com/u/43666095?s=460&v=4");
+        glideLoadImage("http://p7.qhimg.com/bdm/2560_1600_100/t0116c6a290615250b7.jpg");
     }
 
     /**
@@ -95,4 +98,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+    /**
+     * 通过Glide加载网络图片
+     * @param img
+     */
+    private void glideLoadImage(String img){
+        Glide.with(this)
+                .load(img)
+                .into(mIv);
+    }
+
 }
