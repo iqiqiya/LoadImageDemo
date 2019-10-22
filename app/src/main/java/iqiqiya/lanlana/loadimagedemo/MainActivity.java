@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load(img)
-                .apply(options)
+                .apply(GlideOptionsUtils.circleCropOption())
                 .into(mIv);
     }
 
