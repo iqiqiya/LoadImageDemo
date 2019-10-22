@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onLoadImageClick(View v) {
         //普通方式 loadUrlImage("https://avatars2.githubusercontent.com/u/43666095?s=460&v=4");
-        glideLoadImage("http://p7.qhimg.com/bdm/2560_1600_100/t0116c6a290615250b7.jpg");
+        //glideLoadImage("http://p7.qhimg.com/bdm/2560_1600_100/t0116c6a290615250b7.jpg");
+        glideAppLoadUrlImage("http://p7.qhimg.com/bdm/2560_1600_100/t0116c6a290615250b7.jpg");
     }
 
     /**
@@ -114,6 +115,13 @@ public class MainActivity extends AppCompatActivity {
                 .load(img)
                 .apply(GlideOptionsUtils.circleCropOption())
                 .into(mIv);
+    }
+
+    private void glideAppLoadUrlImage(String img){
+       GlideApp.with(this)
+               .load(img)
+               .injectOptions()
+               .into(mIv);
     }
 
 }
