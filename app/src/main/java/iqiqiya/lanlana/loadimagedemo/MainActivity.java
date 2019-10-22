@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -104,8 +105,14 @@ public class MainActivity extends AppCompatActivity {
      * @param img
      */
     private void glideLoadImage(String img){
+        RequestOptions options = new RequestOptions()
+                .placeholder(R.mipmap.loading)
+                .error(R.mipmap.loader_error)
+                .circleCrop();
+
         Glide.with(this)
                 .load(img)
+                .apply(options)
                 .into(mIv);
     }
 
